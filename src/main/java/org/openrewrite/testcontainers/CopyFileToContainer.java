@@ -11,7 +11,7 @@ import org.openrewrite.java.tree.JavaType;
 
 public class CopyFileToContainer extends Recipe {
     private static final MethodMatcher withClasspathResourceMapping = new MethodMatcher(
-            "org.testcontainers.containers.Container withClasspathResourceMapping(String, String, org.testcontainers.containers.BindMode)");
+            "org.testcontainers.containers.Container withClasspathResourceMapping(String, String, org.testcontainers.containers.BindMode)", true);
 
     @Override
     public String getDisplayName() {
