@@ -54,6 +54,8 @@ dependencies {
     implementation("org.openrewrite:rewrite-java")
     runtimeOnly("org.openrewrite:rewrite-java-11")
 
+    implementation("org.testcontainers:testcontainers:1.17.3")
+
     testImplementation(platform(kotlin("bom", "1.6.21")))
     testImplementation(kotlin("reflect"))
     testImplementation(kotlin("stdlib"))

@@ -20,29 +20,31 @@ This will publish to your local maven repository, typically under `~/.m2/reposit
 Replace the groupId, artifactId, and recipe name in these samples with those you selected in the previous steps. 
 
 In a Maven project's pom.xml, make your recipe module a plugin dependency:
+
 ```xml
+
 <project>
-    <build>
-        <plugins>
-            <plugin>
-                <groupId>org.openrewrite.maven</groupId>
-                <artifactId>rewrite-maven-plugin</artifactId>
-                <version>4.14.1</version>
-                <configuration>
-                    <activeRecipes>
-                        <recipe>org.openrewrite.starter.NoGuavaListsNewArrayList</recipe>
-                    </activeRecipes>
-                </configuration>
-                <dependencies>
-                    <dependency>
-                        <groupId>org.openrewrite.recipe</groupId>
-                        <artifactId>rewrite-recipe-starter</artifactId>
-                        <version>0.1.0-SNAPSHOT</version>
-                    </dependency>
-                </dependencies>
-            </plugin>
-        </plugins>
-    </build>
+  <build>
+    <plugins>
+      <plugin>
+        <groupId>org.openrewrite.maven</groupId>
+        <artifactId>rewrite-maven-plugin</artifactId>
+        <version>4.14.1</version>
+        <configuration>
+          <activeRecipes>
+            <recipe>org.openrewrite.testcontainers.CopyFileToContainer</recipe>
+          </activeRecipes>
+        </configuration>
+        <dependencies>
+          <dependency>
+            <groupId>org.openrewrite.recipe</groupId>
+            <artifactId>rewrite-testcontainers</artifactId>
+            <version>0.1.0-SNAPSHOT</version>
+          </dependency>
+        </dependencies>
+      </plugin>
+    </plugins>
+  </build>
 </project>
 ```
 
@@ -61,11 +63,11 @@ repositories {
 }
 
 dependencies {
-    rewrite("org.openrewrite.recipe:rewrite-recipe-starter:0.1.0-SNAPSHOT")
+    rewrite("org.openrewrite.recipe:rewrite-testcontainers:0.1.0-SNAPSHOT")
 }
 
 rewrite {
-    activeRecipe("org.openrewrite.starter.NoGuavaListsNewArrayList")
+    activeRecipe("org.openrewrite.testcontainers.CopyFileToContainer")
 }
 ```
 
